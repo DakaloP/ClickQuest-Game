@@ -14,12 +14,11 @@ export default function GameArea({ onClick, isEvasive, teleport }) {
   // Handle click
   const handleClick = () => {
     if (!isVisible) return; // If hidden, ignore clicks
-
     onClick?.(); // Optional chaining to avoid errors if not provided
 
     if (teleport) {
       setIsVisible(false);
-      const delay = Math.random() * 1000 + 500; // 0.5s–1.5s random delay
+      const delay = Math.random() * 1000 + 500; // Random delay between 500ms to 1500ms
       setTimeout(() => {
         setPosition(getRandomPosition());
         setIsVisible(true);
